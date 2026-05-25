@@ -30,6 +30,7 @@
     },
     {
       "matches": ["*://www.bilibili.com/*"],
+      "exclude_matches": ["*://www.bilibili.com/video/*"],
       "css": ["css/content_style.css"],
       "js": ["js/content_script.js"]
     },
