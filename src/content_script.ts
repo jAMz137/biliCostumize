@@ -39,14 +39,18 @@ let recommendOffset = 0
 const RECOMMEND_PAGE_SIZE = 10
 const DYNAMIC_VISITED_KEY = 'minimalDynamicVisitedUrls'
 const MAX_DYNAMIC_VISITED = 1000
+const RECOMMEND_DISLIKED_KEY = 'minimalDislikedRecommendKeys'
+const MAX_DISLIKED_RECOMMENDS = 1000
 let prependWatchLaterItem: ((item: WatchLaterItem) => void)|null = null
 const dynamicVisitedUrls = new Set<string>()
+const dislikedRecommendKeys = new Set<string>()
 
 /* main */
 
 loadSettings().then(async (settings) => {
   lg.info('loaded settings', settings)
   await loadDynamicVisitedUrls()
+  await loadDislikedRecommendKeys()
   const blockedWords = settings.blockedWords
     ? settings.blockedWords
         .split(",")
@@ -159,6 +163,33 @@ function markDynamicVisited(link: HTMLLinkElement) {
   link.classList.add('visited')
   link.closest('.dynamic-item')?.classList.add('visited')
   chrome.storage.local.set({ [DYNAMIC_VISITED_KEY]: Array.from(dynamicVisitedUrls) })
+}
+
+function loadDislikedRecommendKeys() {
+  return new Promise<void>((resolve) => {
+    chrome.storage.local.get(RECOMMEND_DISLIKED_KEY, (data) => {
+      const keys = Array.isArray(data[RECOMMEND_DISLIKED_KEY]) ? data[RECOMMEND_DISLIKED_KEY] : []
+      dislikedRecommendKeys.clear()
+      for (const key of keys) {
+        if (typeof key === 'string' && key) dislikedRecommendKeys.add(key)
+      }
+      resolve()
+    })
+  })
+}
+
+function rememberDislikedRecommend(item: RecommendCard) {
+  const key = getRecommendKey(item)
+  if (!key) return
+
+  dislikedRecommendKeys.delete(key)
+  dislikedRecommendKeys.add(key)
+  while (dislikedRecommendKeys.size > MAX_DISLIKED_RECOMMENDS) {
+    const first = dislikedRecommendKeys.values().next().value
+    dislikedRecommendKeys.delete(first)
+  }
+
+  chrome.storage.local.set({ [RECOMMEND_DISLIKED_KEY]: Array.from(dislikedRecommendKeys) })
 }
 
 function isDynamicVisited(url: string) {
@@ -409,6 +440,7 @@ function renderRecommendList(container: Cash, blockedWords: string[], offset: nu
       return allCards.findIndex((candidate) => candidate === card || candidate.contains(card)) === index
     })
     .filter((card): card is HTMLElement => card instanceof HTMLElement && isValidRecommendCard(card, blockedWords))
+    .filter((card) => !isRecommendDisliked(getRecommendKeyFromCard(card)))
 
   if (cards.length === 0) {
     container.append('<div class="watchlater-empty">暂无推荐</div>')
@@ -446,6 +478,31 @@ function isValidRecommendCard(card: HTMLElement, blockedWords: string[]) {
   if (!title) return false
 
   return !blockedWords.some((word) => title.toLowerCase().includes(word.toLowerCase()))
+}
+
+function getRecommendKeyFromCard(card: HTMLElement) {
+  const link = card.querySelector<HTMLAnchorElement>('a[href*="/video/"]')
+  const url = link?.href || ''
+  const title = card.querySelector<HTMLElement>('.bili-video-card__info--tit')?.textContent?.trim() || link?.title?.trim() || ''
+
+  return getRecommendKey({
+    aid: getAidFromRecommendCard(card, url),
+    bvid: getBvidFromUrl(url),
+    title,
+    url,
+  })
+}
+
+function getRecommendKey(item: Pick<RecommendCard, 'aid'|'bvid'|'title'|'url'>) {
+  if (item.bvid) return `bvid:${item.bvid}`
+  if (item.aid) return `aid:${item.aid}`
+  const url = normalizeDynamicUrl(item.url)
+  if (url) return `url:${url}`
+  return item.title ? `title:${item.title}` : ''
+}
+
+function isRecommendDisliked(key: string) {
+  return key !== '' && dislikedRecommendKeys.has(key)
 }
 
 interface RecommendCard {
@@ -548,6 +605,7 @@ function renderRecommendCard(item: RecommendCard) {
   card.find('.fn-dislike').on('click', (event) => {
     event.preventDefault()
     event.stopPropagation()
+    rememberDislikedRecommend(item)
     card.remove()
   })
 
