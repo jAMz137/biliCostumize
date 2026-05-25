@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "biliCostumize",
+  "description": "Customize Bilibili with a minimal homepage and focus controls",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "options_ui": {
+    "page": "options.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.bilibili.com/", "https://www.bilibili.com/?*"],
+      "css": ["css/content_style.css"],
+      "js": ["js/content_script.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "biliCostumize@example.invalid",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": [
+    "storage",
+    "tabs"
+  ]
+}

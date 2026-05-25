@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Options</title>
+  </head>
+  <body>
+    <main>
+      <section class="settings-section">
+        <h1>Minimal Bilibili</h1>
+        <div class="input-group">
+          <input type="checkbox" name="auto-focus" id="v-auto-focus">
+          <label for="v-auto-focus">Auto focus on search bar</label>
+        </div>
+
+        <div class="input-group">
+          <input type="checkbox" name="auto-load-video-column" id="v-auto-load-video-column">
+          <label for="v-auto-load-video-column">Auto load for video column when scrolling</label>
+        </div>
+
+        <div class="input-group input-group--stacked">
+          <label for="v-blocked-words">Comma separated blocked words</label>
+          <input type="text" name="blocked-words" id="v-blocked-words">
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h1>BiliFocus</h1>
+        <div class="input-group">
+          <input type="checkbox" id="v-slashfocus">
+          <label for="v-slashfocus">Use "/" to focus the search box</label>
+        </div>
+
+        <div class="bilifocus-list">
+          <div class="input-group">
+            <input type="checkbox" id="bf-vidrecom">
+            <label for="bf-vidrecom">Hide video recommendations</label>
+          </div>
+          <div class="input-group">
+            <input type="checkbox" id="bf-comments">
+            <label for="bf-comments">Hide comments</label>
+          </div>
+
+          <details open>
+            <summary>General</summary>
+            <div class="input-group">
+              <input type="checkbox" id="bf-searchrecom">
+              <label for="bf-searchrecom">Hide search suggestions</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-leftnavi">
+              <label for="bf-leftnavi">Hide top-left navigation</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-ads">
+              <label for="bf-ads">Hide ads</label>
+            </div>
+          </details>
+
+          <details>
+            <summary>Top-right navigation</summary>
+            <div class="input-group">
+              <input type="checkbox" id="bf-membership">
+              <label for="bf-membership">Hide premium icon</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-messages">
+              <label for="bf-messages">Hide messages icon</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-dongtai">
+              <label for="bf-dongtai">Hide dynamic feed icon</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-favourites">
+              <label for="bf-favourites">Hide favorites icon</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-history">
+              <label for="bf-history">Hide history icon</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-tougao">
+              <label for="bf-tougao">Hide upload icon</label>
+            </div>
+          </details>
+
+          <details>
+            <summary>Personal page</summary>
+            <div class="input-group">
+              <input type="checkbox" id="bf-myvideos">
+              <label for="bf-myvideos">Hide my videos</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-myfavourites">
+              <label for="bf-myfavourites">Hide favorites folders</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-subanimes">
+              <label for="bf-subanimes">Hide subscribed anime</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-recentcoins">
+              <label for="bf-recentcoins">Hide recently coined videos</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-collections">
+              <label for="bf-collections">Hide collections and series</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-columns">
+              <label for="bf-columns">Hide columns</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-recentlikes">
+              <label for="bf-recentlikes">Hide recently liked videos</label>
+            </div>
+            <div class="input-group">
+              <input type="checkbox" id="bf-usrpageleftsidebar">
+              <label for="bf-usrpageleftsidebar">Hide left sidebar</label>
+            </div>
+          </details>
+        </div>
+
+        <button id="fn-bilifocus-toggle" type="button">Show all</button>
+      </section>
+
+      <button id="fn-save" type="button">Save</button>
+    </main>
+    <script src="js/options.js"></script>
+  </body>
+</html>

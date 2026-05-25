@@ -1,0 +1,36 @@
+.video {
+  color: inherit;
+}
+
+// www.bilibili.com
+.bpx-player-video-wrap {
+  position: relative;
+}
+
+// www.youtube.com
+.html5-video-container {
+  position: relative;
+}
+
+$video-toast-width: 300px;
+
+.minimal-bilibili-video-toast {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  margin-left: calc($video-toast-width / -2);
+  width: $video-toast-width;
+  height: 40px;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.minimal-bilibili-video-toast > div {
+  background-color: rgba(200, 200, 200, 0.7);
+  color: #333;
+  font-size: 15px;
+  border-radius: 4px;
+  padding: 8px 12px;
+}

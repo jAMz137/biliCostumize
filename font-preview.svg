@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="920" viewBox="0 0 1180 920">
+  <rect width="1180" height="920" fill="#ffffff"/>
+  <style>
+    text { fill: #18191c; }
+    .label { font: 18px "Segoe UI", Arial, sans-serif; fill: #4e5969; }
+    .hint { font: 14px "Segoe UI", Arial, sans-serif; fill: #9499a0; }
+    .box { fill: #f7f8fa; stroke: rgba(148,153,160,0.28); rx: 10; }
+    .num { fill: #61666d; dominant-baseline: middle; text-anchor: middle; }
+  </style>
+
+  <text x="40" y="52" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">动态项目序号字体预览</text>
+  <text x="40" y="82" class="hint">如果系统未安装某个字体，会自动使用后面的候选字体显示。</text>
+
+  <g transform="translate(40 120)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Georgia</text>
+    <text x="20" y="55" class="hint">稳重、书籍感、数字较圆润</text>
+    <text x="430" y="42" class="num" font-family="Georgia, serif" font-size="44" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(620 120)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Times New Roman</text>
+    <text x="20" y="55" class="hint">传统报刊感，细节古典</text>
+    <text x="430" y="42" class="num" font-family="'Times New Roman', serif" font-size="44" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(40 220)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Didot</text>
+    <text x="20" y="55" class="hint">高对比、杂志感；Windows 可能回退</text>
+    <text x="430" y="42" class="num" font-family="Didot, Georgia, serif" font-size="44" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(620 220)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Bodoni 72</text>
+    <text x="20" y="55" class="hint">装饰感强；Windows 可能回退</text>
+    <text x="430" y="42" class="num" font-family="'Bodoni 72', Didot, Georgia, serif" font-size="44" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(40 320)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Bodoni 72 Smallcaps</text>
+    <text x="20" y="55" class="hint">更窄、更高挑；Windows 可能回退</text>
+    <text x="430" y="42" class="num" font-family="'Bodoni 72 Smallcaps', 'Bodoni 72', Didot, Georgia, serif" font-size="44" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(620 320)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Arial Narrow</text>
+    <text x="20" y="55" class="hint">现代窄体、干净细长</text>
+    <text x="430" y="42" class="num" font-family="'Arial Narrow', Arial, sans-serif" font-size="44" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(40 420)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Bahnschrift Condensed</text>
+    <text x="20" y="55" class="hint">Windows 常见，清晰、偏科技感</text>
+    <text x="430" y="42" class="num" font-family="'Bahnschrift Condensed', Bahnschrift, Arial, sans-serif" font-size="44" font-weight="600">10</text>
+  </g>
+
+  <g transform="translate(620 420)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Agency FB</text>
+    <text x="20" y="55" class="hint">很窄、硬朗、游戏/UI 感</text>
+    <text x="430" y="42" class="num" font-family="'Agency FB', 'Bahnschrift Condensed', Arial, sans-serif" font-size="48" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(40 520)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Impact</text>
+    <text x="20" y="55" class="hint">厚重醒目，存在感强</text>
+    <text x="430" y="42" class="num" font-family="Impact, Arial Black, sans-serif" font-size="42" font-weight="400">10</text>
+  </g>
+
+  <g transform="translate(620 520)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Trebuchet MS</text>
+    <text x="20" y="55" class="hint">圆润、现代、较轻松</text>
+    <text x="430" y="42" class="num" font-family="'Trebuchet MS', sans-serif" font-size="44" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(40 620)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Segoe UI</text>
+    <text x="20" y="55" class="hint">Windows UI 默认风格，稳妥清晰</text>
+    <text x="430" y="42" class="num" font-family="'Segoe UI', Arial, sans-serif" font-size="44" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(620 620)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Cascadia Mono</text>
+    <text x="20" y="55" class="hint">等宽代码字体，技术感强</text>
+    <text x="430" y="42" class="num" font-family="'Cascadia Mono', Consolas, monospace" font-size="42" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(40 720)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">Consolas</text>
+    <text x="20" y="55" class="hint">等宽、稳定、程序员风格</text>
+    <text x="430" y="42" class="num" font-family="Consolas, monospace" font-size="42" font-weight="700">10</text>
+  </g>
+
+  <g transform="translate(620 720)">
+    <rect class="box" width="520" height="78"/>
+    <text x="20" y="30" class="label">推荐组合</text>
+    <text x="20" y="55" class="hint">Bahnschrift Condensed, Arial Narrow, Agency FB</text>
+    <text x="430" y="42" class="num" font-family="'Bahnschrift Condensed', 'Arial Narrow', 'Agency FB', sans-serif" font-size="48" font-weight="600">10</text>
+  </g>
+</svg>

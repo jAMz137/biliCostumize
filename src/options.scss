@@ -1,0 +1,75 @@
+body, html {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  overflow-y: auto;
+}
+
+main {
+  box-sizing: border-box;
+  width: 360px;
+  max-height: 560px;
+  padding: 14px 18px;
+  color: #202124;
+  font-family: Arial, sans-serif;
+}
+
+.settings-section {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  input[type=checkbox] {
+    margin: 0 5px 0 0;
+  }
+}
+
+.input-group--stacked {
+  align-items: stretch;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 4px;
+  }
+}
+
+#v-blocked-words {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.bilifocus-list {
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+details {
+  margin: 8px 0;
+}
+
+summary {
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+#fn-save {
+  margin: 15px 0;
+}
+
+#fn-save,
+#fn-bilifocus-toggle {
+  width: 100%;
+}
